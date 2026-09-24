@@ -2,6 +2,12 @@
 
 Deutschsprachiger Matratzen-Finder mit Next.js App Router, TypeScript, regelbasiertem Ranking und serverseitiger Amazon Creators API.
 
+## Repository und Hosting
+
+- GitHub: https://github.com/FunkeyMedia/matratzen-finder
+- Vercel-Projekt: https://vercel.com/funkey1/matratzen-finder
+- Production-Branch: `main` über die native Git-Integration
+
 ## Status
 
 Der Katalog enthält derzeit **vier recherchierte Matratzen und zwei Zubehörprodukte**. Das beauftragte Ziel von 200 + 50 eigenständigen, verifizierten Produkten ist nicht erreicht. API-Zugangsdaten wurden nicht bereitgestellt; aktuelle Produktbilder und Preise können daher noch nicht angezeigt oder geprüft werden. Die Website bleibt bewusst `noindex` und darf nicht als fertig recherchiertes Angebot beworben werden.
