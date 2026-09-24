@@ -32,7 +32,7 @@ Kopiere `.env.example` nach `.env.local` und trage die Amazon Creators API Zugan
 
 - Amazon-Zugangsdaten sicher einrichten und Abrufe für Matratzen sowie Zubehör prüfen.
 - 200 eigenständige Matratzen und 50 Zubehörmodelle verifizieren, Dubletten entfernen.
-- Betreiberangaben aus dem bestehenden Impressum bestätigen und Datenschutztext rechtlich prüfen.
+- Datenschutztext und rechtliche Inhalte vor breiter Veröffentlichung fachlich prüfen.
 - Mobilansicht, Tastaturbedienung, Finder, Vergleich und Amazon-Links im Browser testen.
 - Erst dann `robots.ts` und das `noindex`-Flag in `layout.tsx` freigeben.
 - GitHub-Repository über die native Vercel-Git-Integration verbinden und einen Production-Build nach Push auf `main` verifizieren.
