@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';import {products} from '@/lib/products';
+export default function sitemap():MetadataRoute.Sitemap{const site=process.env.NEXT_PUBLIC_SITE_URL||'http://localhost:3000';const paths=['','finder','katalog','vergleich','ratgeber','methode','ueber-uns','kontakt','impressum','datenschutz','affiliate'];return [...paths.map(path=>({url:`${site}/${path}`,lastModified:new Date()})),...products.map(p=>({url:`${site}/produkt/${p.slug}`,lastModified:new Date(p.verifiedAt)}))]}

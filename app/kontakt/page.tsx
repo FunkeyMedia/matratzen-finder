@@ -1,0 +1,3 @@
+import type {Metadata} from 'next';
+export const metadata:Metadata={title:'Kontakt'};
+export default function Contact(){return <><section className="page-hero"><div className="wrap"><p className="eyebrow">KONTAKT</p><h1>Eine Frage oder ein Fehlerhinweis?</h1><p>Wir freuen uns über konkrete Hinweise zu Modellen und Quellen.</p></div></section><article className="wrap narrow content-page"><p>Schreibe an <a href="mailto:weyers@markt-stark.de">weyers@markt-stark.de</a>. Nenne bei Produktkorrekturen am besten Modellname, ASIN und die betreffende Angabe.</p><p>Betreiber: marktSTARK®, Inhaber Pascal Weyers. Die vollständigen Angaben stehen im <a href="/impressum">Impressum</a>.</p></article></>}
