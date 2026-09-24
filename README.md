@@ -16,13 +16,13 @@ Der Katalog enthält derzeit **vier recherchierte Matratzen und zwei Zubehörpro
 
 Node 24 und pnpm 11: `pnpm install`, `pnpm dev`, `pnpm build`.
 
-Kopiere `.env.example` nach `.env.local` und trage die Amazon Creators API Zugangsdaten ein. Diese Datei bleibt durch `.gitignore` privat. Die Partner-ID `onlinestarkei-21` liegt in `lib/products.ts` für Links und in `lib/amazon.ts` für API-Abfragen. Auf Vercel müssen `AMAZON_CREDENTIAL_ID` und `AMAZON_CREDENTIAL_SECRET` als geschützte Umgebungsvariablen gesetzt werden.
+Für eine unabhängige Anbindung im Amazon PartnerNet unter **Tools → Creators API** eine eigene Anwendung „Matratzen-Finder“ und ein neues Credential erzeugen. Die Kontoinhaberin oder der Kontoinhaber setzt `AMAZON_CREDENTIAL_ID` und `AMAZON_CREDENTIAL_SECRET` direkt als geschützte Production-Umgebungsvariablen im Vercel-Projekt `matratzen-finder` und löst danach ein neues Deployment aus. Zugangsdaten nicht in Chat, GitHub oder Website-Formulare kopieren. Für lokale Entwicklung `.env.example` nach `.env.local` kopieren; `.gitignore` hält diese Datei privat. Die Partner-ID `onlinestarkei-21` liegt in `lib/products.ts` für Links und in `lib/amazon.ts` für API-Abfragen.
 
 ## Produktmodell und Recherche
 
 `lib/products.ts` enthält eindeutige ASINs, kurze redaktionelle Namen, belegte Merkmale, Quelle und Prüfdatum. Neue Produkte dürfen erst nach Prüfung der ASIN, Varianten und Merkmale ergänzt werden. Die Produktkategorie bestimmt Finder oder Zubehör. Reine Größenvarianten zählen nicht als neue Modelle. Das Importziel beträgt mindestens 200 Matratzen und 50 Zubehörmodelle.
 
-`lib/amazon.ts` fragt für sichtbar benötigte ASINs die Creators API ab. Es nutzt maximal 10 ASINs je GetItems-Anfrage, drosselt Aufrufe und hält eine 30-Minuten-Servercache. Bei fehlendem oder gescheitertem API-Abruf erscheinen weder alte Preise noch fremde Bilder. Produktbild-URLs werden nicht dauerhaft gespeichert.
+`lib/amazon.ts` fragt für sichtbar benötigte ASINs die Creators API ab. Es nutzt maximal 10 ASINs je GetItems-Anfrage, drosselt Aufrufe und hält eine 30-Minuten-Servercache. Amazon-Bild, Produkttitel, Merkmale und Preis stammen dann aus derselben Antwort; der Abrufzeitpunkt erscheint am Preis. Bei fehlendem oder gescheitertem API-Abruf erscheinen weder alte Preise noch fremde Bilder. Produktbild-URLs werden nicht dauerhaft gespeichert.
 
 ## Finder
 
@@ -35,6 +35,6 @@ Kopiere `.env.example` nach `.env.local` und trage die Amazon Creators API Zugan
 - Datenschutztext und rechtliche Inhalte vor breiter Veröffentlichung fachlich prüfen.
 - Mobilansicht, Tastaturbedienung, Finder, Vergleich und Amazon-Links im Browser testen.
 - Erst dann `robots.ts` und das `noindex`-Flag in `layout.tsx` freigeben.
-- GitHub-Repository über die native Vercel-Git-Integration verbinden und einen Production-Build nach Push auf `main` verifizieren.
+- Nach neuen Zugangsdaten einen erfolgreichen Creators-API-Abruf für beide Kategorien und den anschließenden Production-Build prüfen. Die native Git-Integration ist bereits eingerichtet und ein Push auf `main` wurde erfolgreich als Production-Deployment verifiziert.
 
 Keine Amazon-Zugangsdaten, Preis-Snapshots oder heruntergeladenen Amazon-Bilder committen.
