@@ -10,13 +10,13 @@ Deutschsprachiger Matratzen-Finder mit Next.js App Router, TypeScript, regelbasi
 
 ## Status
 
-Der Katalog enthält derzeit **vier recherchierte Matratzen und zwei Zubehörprodukte**. Das beauftragte Ziel von 200 + 50 eigenständigen, verifizierten Produkten ist nicht erreicht. API-Zugangsdaten wurden nicht bereitgestellt; aktuelle Produktbilder und Preise können daher noch nicht angezeigt oder geprüft werden. Die Website bleibt bewusst `noindex` und darf nicht als fertig recherchiertes Angebot beworben werden.
+Der Katalog enthält derzeit **vier recherchierte Matratzen und zwei Zubehörprodukte**. Das beauftragte Ziel von 200 + 50 eigenständigen, verifizierten Produkten ist nicht erreicht. Ein nutzbarer API- oder Gateway-Zugang ist noch nicht eingerichtet; aktuelle Produktbilder und Preise können daher noch nicht angezeigt oder geprüft werden. Die Website bleibt bewusst `noindex` und darf nicht als fertig recherchiertes Angebot beworben werden.
 
 ## Lokal starten
 
 Node 24 und pnpm 11: `pnpm install`, `pnpm dev`, `pnpm build`.
 
-Für eine unabhängige Anbindung im Amazon PartnerNet unter **Tools → Creators API** eine eigene Anwendung „Matratzen-Finder“ und ein neues Credential erzeugen. Die Kontoinhaberin oder der Kontoinhaber setzt `AMAZON_CREDENTIAL_ID` und `AMAZON_CREDENTIAL_SECRET` direkt als geschützte Production-Umgebungsvariablen im Vercel-Projekt `matratzen-finder` und löst danach ein neues Deployment aus. Zugangsdaten nicht in Chat, GitHub oder Website-Formulare kopieren. Für lokale Entwicklung `.env.example` nach `.env.local` kopieren; `.gitignore` hält diese Datei privat. Die Partner-ID `onlinestarkei-21` liegt in `lib/products.ts` für Links und in `lib/amazon.ts` für API-Abfragen.
+Optional kann der bereits vorhandene Boxershorts-Finder-Katalog-Gateway über `AMAZON_GATEWAY_SECRET` und `AMAZON_GATEWAY_URL` genutzt werden. Der Gateway-Zugang muss serverseitig in beiden Projekten ausdrücklich freigegeben sein; die Amazon-Credentials bleiben im Gateway-Projekt. Alternativ für eine unabhängige Anbindung im Amazon PartnerNet unter **Tools → Creators API** eine eigene Anwendung „Matratzen-Finder“ und ein neues Credential erzeugen. Die Kontoinhaberin oder der Kontoinhaber setzt `AMAZON_CREDENTIAL_ID` und `AMAZON_CREDENTIAL_SECRET` direkt als geschützte Production-Umgebungsvariablen im Vercel-Projekt `matratzen-finder` und löst danach ein neues Deployment aus. Zugangsdaten nicht in Chat, GitHub oder Website-Formulare kopieren. Für lokale Entwicklung `.env.example` nach `.env.local` kopieren; `.gitignore` hält diese Datei privat. Die Partner-ID `onlinestarkei-21` liegt in `lib/products.ts` für Links und in `lib/amazon.ts` für API-Abfragen.
 
 ## Produktmodell und Recherche
 
