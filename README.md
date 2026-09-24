@@ -22,7 +22,7 @@ Für eine unabhängige Anbindung im Amazon PartnerNet unter **Tools → Creators
 
 `lib/products.ts` enthält eindeutige ASINs, kurze redaktionelle Namen, belegte Merkmale, Quelle und Prüfdatum. Neue Produkte dürfen erst nach Prüfung der ASIN, Varianten und Merkmale ergänzt werden. Die Produktkategorie bestimmt Finder oder Zubehör. Reine Größenvarianten zählen nicht als neue Modelle. Das Importziel beträgt mindestens 200 Matratzen und 50 Zubehörmodelle.
 
-`lib/amazon.ts` fragt für sichtbar benötigte ASINs die Creators API ab. Es nutzt maximal 10 ASINs je GetItems-Anfrage, drosselt Aufrufe und hält eine 30-Minuten-Servercache. Amazon-Bild, Produkttitel, Merkmale und Preis stammen dann aus derselben Antwort; der Abrufzeitpunkt erscheint am Preis. Bei fehlendem oder gescheitertem API-Abruf erscheinen weder alte Preise noch fremde Bilder. Produktbild-URLs werden nicht dauerhaft gespeichert.
+Der Katalog teilt größere Bestände in Seiten mit jeweils höchstens 18 Karten. Für die sichtbare Seite werden die Amazon-Daten vor dem Ausliefern geladen. `lib/amazon.ts` fragt für sichtbar benötigte ASINs die Creators API ab. Es nutzt maximal 10 ASINs je GetItems-Anfrage, drosselt Aufrufe und hält eine 30-Minuten-Servercache. Amazon-Bild, Produkttitel, Merkmale und Preis stammen dann aus derselben Antwort; der Abrufzeitpunkt erscheint am Preis. Bei fehlendem oder gescheitertem API-Abruf erscheinen weder alte Preise noch fremde Bilder. Produktbild-URLs werden nicht dauerhaft gespeichert.
 
 ## Finder
 
