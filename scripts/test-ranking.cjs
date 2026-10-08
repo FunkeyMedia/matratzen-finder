@@ -1,0 +1,28 @@
+const assert=require('node:assert/strict');
+const {products,mattresses,affiliateUrl}=require('../.test-build/products.js');
+const {rankProducts,initialAnswers,normalizeAnswers,matchesSize}=require('../.test-build/ranking.js');
+assert.deepEqual(normalizeAnswers(null),initialAnswers);
+assert.deepEqual(normalizeAnswers({size:'wrong',feel:'H3',material:42,priority:'hoehe'}),{...initialAnswers,feel:'H3',priority:'hoehe'});
+assert.ok(rankProducts(products,initialAnswers).every(r=>r.score===null));
+assert.equal(rankProducts(products,initialAnswers).length,4);
+const answers={size:'90 × 200',feel:'H3',material:'Taschenfederkern',priority:'hoehe'};
+const ranked=rankProducts(products,answers);
+assert.equal(ranked[0].product.slug,'bmm-ortho-medic');
+assert.equal(ranked[0].score,100);
+assert.equal(ranked[0].mismatches.length,0);
+const foam=ranked.find(r=>r.product.slug==='traeumegut24-aquaflex-ortho');
+assert.equal(foam.score,65);
+assert.equal(foam.mismatches.length,2);
+const emma=ranked.find(r=>r.product.slug==='emma-one');
+assert.ok(emma.mismatches.some(s=>s.includes('H2')));
+const large=rankProducts(products,{...initialAnswers,size:'140 × 200',priority:'hoehe'}).filter(r=>matchesSize(r.product,'140 × 200'));
+assert.equal(large.length,1);
+assert.equal(large[0].product.height,16);
+assert.ok(large[0].mismatches.some(s=>s.includes('16 cm')));
+const missingHeight={...mattresses[0],height:undefined};
+assert.ok(rankProducts([missingHeight],{...initialAnswers,priority:'hoehe'})[0].unknowns.some(s=>s.includes('Höhe')));
+assert.equal(matchesSize({...mattresses[0],size:'90 × 2000 cm'},'90 × 200'),false);
+assert.equal(new Set(products.map(p=>p.asin)).size,products.length);
+assert.equal(new Set(products.map(p=>p.slug)).size,products.length);
+for(const p of products){const u=new URL(affiliateUrl(p.asin));assert.equal(u.pathname,`/dp/${p.asin}`);assert.equal(u.searchParams.get('tag'),'onlinestarkei-21');}
+console.log('Ranking, invalid stored answers, exact sizes, mismatches, missing height, category exclusion and six merchant links: PASS');
