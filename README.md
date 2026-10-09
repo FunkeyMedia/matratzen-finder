@@ -38,3 +38,11 @@ Der Katalog teilt größere Bestände in Seiten mit jeweils höchstens 18 Karten
 - Nach neuen Zugangsdaten einen erfolgreichen Creators-API-Abruf für beide Kategorien und den anschließenden Production-Build prüfen. Die native Git-Integration ist bereits eingerichtet und ein Push auf `main` wurde erfolgreich als Production-Deployment verifiziert.
 
 Keine Amazon-Zugangsdaten, Preis-Snapshots oder heruntergeladenen Amazon-Bilder committen.
+
+## Lokale Abnahme 08.10.2026
+
+Die sechs vorhandenen ASIN-Ziele wurden direkt im Browser gelesen. Traumnacht B01N6QMZED führt aktuell zur Basic-Variante (140 × 200 cm, H3, 16 cm), nicht zur zuvor benannten Premium-Variante. Der bestehende Slug bleibt für URL-Kontinuität erhalten. Händlerangaben sind keine eigenen Tests.
+
+Der Finder weist bekannte Abweichungen aus, vergibt ohne Kriterien keinen Prozentwert, validiert gespeicherte Antworten und leert Vergleichsauswahlen bei neuen Antworten. `npm test` prüft Ranking und Händlerzuordnung. Ein npm-Lockfile ermöglicht alternativ `npm ci`, `npm run build` und `npm run typecheck` mit Node 24.
+
+Next.js wurde lokal auf 16.3.8 aktualisiert. Keine Indexfreigabe oder Veröffentlichung. Die separate offene PR #1 für den vorhandenen Creators-Gateway bleibt eigenständig; die Gateway-Verbindung und die Erweiterung auf 200 + 50 Produkte sind weiterhin offen.
