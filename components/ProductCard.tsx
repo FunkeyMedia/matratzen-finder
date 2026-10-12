@@ -1,3 +1,4 @@
+import { formatOfferDate } from "@/lib/format";
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { affiliateUrl } from "@/lib/products";
@@ -55,9 +56,7 @@ export function ProductCard({
           <strong>{money || "Preis bei Amazon prüfen"}</strong>
           {offer?.availability && <small>{offer.availability}</small>}
           {offer?.checkedAt && (
-            <small>
-              Amazon-Abruf: {new Date(offer.checkedAt).toLocaleString("de-DE")}
-            </small>
+            <small>Amazon-Abruf: {formatOfferDate(offer.checkedAt)}</small>
           )}
         </div>
         <div className="card-actions">

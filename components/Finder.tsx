@@ -1,4 +1,5 @@
 "use client";
+import { formatOfferDate } from "@/lib/format";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { mattresses, affiliateUrl } from "@/lib/products";
@@ -230,8 +231,7 @@ export default function Finder() {
                     {offer?.checkedAt && (
                       <small>
                         {" "}
-                        · Amazon-Abruf:{" "}
-                        {new Date(offer.checkedAt).toLocaleString("de-DE")}
+                        · Amazon-Abruf: {formatOfferDate(offer.checkedAt)}
                       </small>
                     )}
                   </p>

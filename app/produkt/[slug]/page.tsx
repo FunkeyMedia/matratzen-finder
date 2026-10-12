@@ -1,3 +1,4 @@
+import { formatOfferDate } from "@/lib/format";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -145,7 +146,7 @@ export default async function ProductPage({
               * Partnerlink. Als Amazon-Partner verdienen wir an qualifizierten
               Verkäufen.{" "}
               {offer.price != null
-                ? `Amazon-Preis: ${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(offer.price)} · Abruf: ${new Date(offer.checkedAt!).toLocaleString("de-DE")}.`
+                ? `Amazon-Preis: ${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(offer.price)} · Abruf: ${formatOfferDate(offer.checkedAt!)}.`
                 : "Preis und Verfügbarkeit bitte bei Amazon prüfen."}{" "}
               Maßgeblich ist das Angebot beim Kauf.
             </p>
