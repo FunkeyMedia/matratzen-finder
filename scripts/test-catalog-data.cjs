@@ -1,3 +1,4 @@
+const {affiliateUrl}=require("../.test-build/products.js");
 const assert = require("node:assert/strict");
 const {
   products,
@@ -41,3 +42,9 @@ assert.equal(
 console.log(
   `${mattresses.length} mattress families, ${accessories.length} accessories, unique ASINs/slugs/families and source-bound variant facts: PASS`,
 );
+
+for (const p of products) {
+  const u = new URL(affiliateUrl(p.asin));
+  assert.equal(u.searchParams.get("th"), "1");
+  assert.equal(u.searchParams.get("psc"), "1");
+}

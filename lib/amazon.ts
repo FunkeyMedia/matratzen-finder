@@ -200,5 +200,8 @@ export async function getOffers(ids: string[]): Promise<Offer[]> {
       );
     }
   }
-  return safe.map((asin) => result.get(asin) || emptyOffer(asin));
+  return safe.map((asin) => ({
+    ...(result.get(asin) || emptyOffer(asin)),
+    url: affiliateUrl(asin),
+  }));
 }
