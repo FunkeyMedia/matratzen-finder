@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Finde Matratzen nach Größe, Härtegrad und Material. Verständliche Kriterien, transparente Empfehlungen und klar gekennzeichnete Amazon-Partnerlinks.",
   openGraph: { type: "website", locale: "de_DE", siteName: "Matratzen-Finder" },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 export default function RootLayout({
   children,

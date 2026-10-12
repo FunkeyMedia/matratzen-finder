@@ -10,7 +10,9 @@ Deutschsprachiger Matratzen-Finder mit Next.js App Router, TypeScript, regelbasi
 
 ## Status
 
-Der Katalog enthält derzeit **vier recherchierte Matratzen und zwei Zubehörprodukte**. Das beauftragte Ziel von 200 + 50 eigenständigen, verifizierten Produkten ist nicht erreicht. Ein nutzbarer API- oder Gateway-Zugang ist noch nicht eingerichtet; aktuelle Produktbilder und Preise können daher noch nicht angezeigt oder geprüft werden. Die Website bleibt bewusst `noindex` und darf nicht als fertig recherchiertes Angebot beworben werden.
+Der aktuelle Katalog enthält **vier recherchierte Matratzen und zwei Zubehörprodukte**. Die Amazon-Anbindung läuft über den vorhandenen Boxershorts-Finder-Gateway mit einem eigenen, nur für diesen Aufrufer angelegten Secret. Alle sechs Produkte wurden am 12. Oktober 2026 über die Creators API mit aktuellem Titel, Bild und EUR-Preis verifiziert. Der nicht mehr abrufbare smartsleep-Eintrag wurde durch das belegte BLACKROLL Recovery Pillow ersetzt; die bisherige Produkt-URL wird dauerhaft auf den neuen Eintrag weitergeleitet. Preise und Bild-URLs werden nicht in Git gespeichert.
+
+Die öffentliche Veröffentlichung im bestehenden Vercel-Projekt und die Suchmaschinenfreigabe wurden am 12. Oktober ausdrücklich beauftragt. Ein früheres Ziel von 200 Matratzen und 50 Zubehörmodellen bleibt eine künftige Katalogerweiterung; der aktuelle Umfang wird auf der Website offen genannt.
 
 ## Lokal starten
 
@@ -31,7 +33,7 @@ Der Katalog teilt größere Bestände in Seiten mit jeweils höchstens 18 Karten
 ## Vor Veröffentlichung
 
 - Amazon-Zugangsdaten sicher einrichten und Abrufe für Matratzen sowie Zubehör prüfen.
-- 200 eigenständige Matratzen und 50 Zubehörmodelle verifizieren, Dubletten entfernen.
+- Erweiterungen des Katalogs erst nach Prüfung von Modellidentität und Variante veröffentlichen.
 - Datenschutztext und rechtliche Inhalte vor breiter Veröffentlichung fachlich prüfen.
 - Mobilansicht, Tastaturbedienung, Finder, Vergleich und Amazon-Links im Browser testen.
 - Erst dann `robots.ts` und das `noindex`-Flag in `layout.tsx` freigeben.
@@ -59,3 +61,12 @@ Die bestehende Anwendung wurde auf dem Production-Commit `96e2d4e` lokal weitere
 - Vier Matratzen und zwei Zubehörprodukte bleiben die verifizierte Datenbasis. Keine neuen Produkte oder Partnerprogramme erfunden.
 
 `npm test` prüft Ranking, genaue Größen, ungültige gespeicherte Antworten, Händlerzuordnung, Filter und Vergleichsauswahl. Build und Browserprüfung sind vor Freigabe separat nachzuweisen. `noindex` und robots-Sperre bleiben aktiv. Kein Push oder Deployment ist Bestandteil dieses lokalen Aufbaus. Die vorhandenen Betreiber- und Datenschutzhinweise wurden inhaltlich nicht neu freigegeben.
+
+## Amazon-Anbindung und Veröffentlichung 12.10.2026
+
+- Eigenen geschützten Gateway-Zugang in beiden vorhandenen Vercel-Projekten eingerichtet. Amazon-Credentials bleiben ausschließlich im Gateway-Projekt.
+- Der Gateway wurde vom exakt bestehenden Production-Commit `5677ea2` neu bereitgestellt, um die neue Konfiguration zu laden. Kein Gateway-Quellcode und keine anderen Zugänge geändert.
+- Alle vier Matratzen und beide Zubehörprodukte über die Anbindung inklusive Titel, Bild, EUR-Preis und Abrufzeitpunkt verifiziert. Nicht erlaubte ASINs werden von der öffentlichen API ausgeschlossen.
+- Öffentliche Basisadresse: `https://matratzen-finder.vercel.app`. Die Indexierung ist freigegeben; robots.txt nennt die Sitemap und sperrt den API-Pfad.
+- Vorschauen und generierte Deployment-Adressen sollen weiterhin Vercel-geschützt bleiben; die stabile Production-Adresse wird öffentlich freigegeben.
+- Der bestehende Inhalt der Betreiber- und Datenschutzhinweise bleibt erhalten. Eine technische Prüfung ersetzt keine gesonderte juristische Prüfung.

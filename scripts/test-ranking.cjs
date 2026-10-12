@@ -25,4 +25,6 @@ assert.equal(matchesSize({...mattresses[0],size:'90 × 2000 cm'},'90 × 200'),fa
 assert.equal(new Set(products.map(p=>p.asin)).size,products.length);
 assert.equal(new Set(products.map(p=>p.slug)).size,products.length);
 for(const p of products){const u=new URL(affiliateUrl(p.asin));assert.equal(u.pathname,`/dp/${p.asin}`);assert.equal(u.searchParams.get('tag'),'onlinestarkei-21');}
+assert.ok(products.some(p=>p.asin==='B07KCF3LHR'&&p.brand==='BLACKROLL'));
+assert.ok(!products.some(p=>p.asin==='B09C8L2YJF'));
 console.log('Ranking, invalid stored answers, exact sizes, mismatches, missing height, category exclusion and six merchant links: PASS');
