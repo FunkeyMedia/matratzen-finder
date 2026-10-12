@@ -1,3 +1,56 @@
-import type {Metadata} from 'next';import Link from 'next/link';
-export const metadata:Metadata={title:'Matratzen-Kaufberatung',description:'Größe, Härtegrad und Materialien verständlich erklärt.'};
-export default function Guide(){return <><section className="page-hero"><div className="wrap"><p className="eyebrow">WISSEN STATT WERBUNG</p><h1>Die Matratze verstehen, bevor du sie kaufst.</h1><p>Die wichtigsten Fragen für eine ruhige, informierte Entscheidung.</p></div></section><article className="wrap narrow content-page"><h2>1. Größe zuerst prüfen</h2><p>Miss die Innenmaße deines Bettrahmens. Eine Matratze sollte zur vorgesehenen Liegefläche passen. Bei einem Doppelbett kann auch die Wahl zwischen einer großen und zwei einzelnen Matratzen relevant sein.</p><h2>2. Härtegrade einordnen</h2><p>H2 und H3 sind keine herstellerübergreifend genormte Komfortgarantie. Betrachte den Härtegrad als erste Orientierung und lies die Angaben zur konkreten Variante. Falls möglich, nutze Probeschlaf- und Rückgabebedingungen des Händlers.</p><h2>3. Materialien vergleichen</h2><p>Kaltschaum, Viscoschaum, Latex und Federkern unterscheiden sich im Aufbau. Das individuelle Liegegefühl hängt zusätzlich von Höhe, Bezug, Unterfederung und Körperbau ab. Ein Materialname allein entscheidet nicht, ob eine Matratze passt.</p><h2>4. Fehlende Angaben erkennen</h2><p>Vergleiche nur belegte Eigenschaften. Fehlt die Angabe zur Höhe, zum Bezug oder zur konkreten Größe, prüfe sie direkt beim Händler. Bewertungen oder Werbeaussagen ersetzen keine persönliche Probe.</p><h2>5. Angebot und Rückgabe prüfen</h2><p>Preis, Lieferbarkeit und Varianten können sich ändern. Prüfe auf Amazon die ausgewählte Größe, den Endpreis, Lieferbedingungen und Rückgaberegeln, bevor du bestellst.</p><p><Link className="button button-primary" href="/finder">Mit dem Finder starten ↗</Link></p></article></>}
+import type { Metadata } from "next";
+import Link from "next/link";
+import { guides } from "@/lib/guides";
+export const metadata: Metadata = {
+  alternates: { canonical: "/ratgeber" },
+  title: "Schlafwissen & Matratzen-Kaufberatung",
+  description:
+    "Härtegrad, Material, Größe, Pflege und Probeschlafen: verständliche Hilfe für deine Matratzenwahl.",
+};
+export default function GuideIndex() {
+  return (
+    <>
+      <section className="page-hero">
+        <div className="wrap">
+          <p className="eyebrow">SCHLAFWISSEN</p>
+          <h1>
+            Gut informiert.
+            <br />
+            Bewusst entschieden.
+          </h1>
+          <p>
+            Antworten auf die Fragen, die beim Matratzenkauf wirklich helfen.
+          </p>
+        </div>
+      </section>
+      <section className="wrap section">
+        <div className="guide-grid">
+          {guides.map((g, i) => (
+            <Link
+              href={`/ratgeber/${g.slug}`}
+              className="guide-card"
+              key={g.slug}
+            >
+              <div className={`guide-cover cover-${i % 3}`}>
+                <span aria-hidden="true">{g.symbol}</span>
+                <small>{g.category}</small>
+              </div>
+              <div>
+                <p className="eyebrow">{g.readingTime} MINUTEN LESEZEIT</p>
+                <h2>{g.title}</h2>
+                <p>{g.intro}</p>
+                <span className="text-link">Ratgeber lesen →</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="wrap closing">
+        <h2>Bereit für deine Vorauswahl?</h2>
+        <Link href="/finder" className="button button-primary">
+          Zum Matratzen-Finder →
+        </Link>
+      </section>
+    </>
+  );
+}

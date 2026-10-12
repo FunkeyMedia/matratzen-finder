@@ -46,3 +46,16 @@ Die sechs vorhandenen ASIN-Ziele wurden direkt im Browser gelesen. Traumnacht B0
 Der Finder weist bekannte Abweichungen aus, vergibt ohne Kriterien keinen Prozentwert, validiert gespeicherte Antworten und leert Vergleichsauswahlen bei neuen Antworten. `npm test` prüft Ranking und Händlerzuordnung. Ein npm-Lockfile ermöglicht alternativ `npm ci`, `npm run build` und `npm run typecheck` mit Node 24.
 
 Next.js wurde lokal auf 16.3.8 aktualisiert. Keine Indexfreigabe oder Veröffentlichung. Die separate offene PR #1 für den vorhandenen Creators-Gateway bleibt eigenständig; die Gateway-Verbindung und die Erweiterung auf 200 + 50 Produkte sind weiterhin offen.
+
+## Affiliate-Aufbau 12.10.2026
+
+Die bestehende Anwendung wurde auf dem Production-Commit `96e2d4e` lokal weiterentwickelt. Die Referenz bett1.de dient als Orientierung für eine klare Produktführung; Texte, Kennzeichen und Illustration sind eigenständig.
+
+- Neue responsive Startseite mit Materialeinstiegen, Produktauswahl, Finder, Ratgeber, FAQ und Affiliate-Hinweis.
+- Katalogfilter nach Suche, Material, Größe und Härte; Auswahl von bis zu vier Produkten für einen direkten Vergleich.
+- Vergleich ist auch ohne vorherigen Finder nutzbar. Keine zusätzliche Speicherung der Auswahl.
+- Sechs eigenständige Ratgeber mit Inhaltsverzeichnis, Checkliste, Quellen und internen Links.
+- Canonicals, Ratgeber- und Produkt-JSON-LD, erweiterte Sitemap; keine erfundenen Bewertungen oder Preise.
+- Vier Matratzen und zwei Zubehörprodukte bleiben die verifizierte Datenbasis. Keine neuen Produkte oder Partnerprogramme erfunden.
+
+`npm test` prüft Ranking, genaue Größen, ungültige gespeicherte Antworten, Händlerzuordnung, Filter und Vergleichsauswahl. Build und Browserprüfung sind vor Freigabe separat nachzuweisen. `noindex` und robots-Sperre bleiben aktiv. Kein Push oder Deployment ist Bestandteil dieses lokalen Aufbaus. Die vorhandenen Betreiber- und Datenschutzhinweise wurden inhaltlich nicht neu freigegeben.

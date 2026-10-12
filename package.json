@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsc lib/ranking.ts lib/products.ts --module commonjs --target es2020 --skipLibCheck --outDir .test-build && node scripts/test-ranking.cjs",
+    "test": "tsc lib/ranking.ts lib/products.ts lib/catalog.ts --module commonjs --target es2020 --skipLibCheck --outDir .test-build && node scripts/test-ranking.cjs && node scripts/test-catalog.cjs",
     "research": "node scripts/research.mjs"
   },
   "dependencies": {
