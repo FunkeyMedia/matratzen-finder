@@ -10,7 +10,7 @@ Deutschsprachiger Matratzen-Finder mit Next.js App Router, TypeScript, regelbasi
 
 ## Status
 
-Der aktuelle Katalog enthält **vier recherchierte Matratzen und zwei Zubehörprodukte**. Die Amazon-Anbindung läuft über den vorhandenen Boxershorts-Finder-Gateway mit einem eigenen, nur für diesen Aufrufer angelegten Secret. Alle sechs Produkte wurden am 12. Oktober 2026 über die Creators API mit aktuellem Titel, Bild und EUR-Preis verifiziert. Der nicht mehr abrufbare smartsleep-Eintrag wurde durch das belegte BLACKROLL Recovery Pillow ersetzt; die bisherige Produkt-URL wird dauerhaft auf den neuen Eintrag weitergeleitet. Preise und Bild-URLs werden nicht in Git gespeichert.
+Der aktuelle Katalog enthält **vier recherchierte Matratzen und zwei Zubehörprodukte**. Die Amazon-Anbindung läuft über den vorhandenen Boxershorts-Finder-Gateway mit einem eigenen, nur für diesen Aufrufer angelegten Secret. Alle sechs Produkte wurden am 12. Oktober 2026 über die Creators API mit aktuellem Titel und Bild verifiziert. Fünf Produkte liefern einen EUR-Preis; Emma One ist laut Amazon derzeit nicht verfügbar und liefert deshalb keinen Preis. Der nicht mehr abrufbare smartsleep-Eintrag wurde durch das belegte BLACKROLL Recovery Pillow ersetzt; die bisherige Produkt-URL wird dauerhaft auf den neuen Eintrag weitergeleitet. Preise und Bild-URLs werden nicht in Git gespeichert.
 
 Die öffentliche Veröffentlichung im bestehenden Vercel-Projekt und die Suchmaschinenfreigabe wurden am 12. Oktober ausdrücklich beauftragt. Ein früheres Ziel von 200 Matratzen und 50 Zubehörmodellen bleibt eine künftige Katalogerweiterung; der aktuelle Umfang wird auf der Website offen genannt.
 
@@ -66,7 +66,7 @@ Die bestehende Anwendung wurde auf dem Production-Commit `96e2d4e` lokal weitere
 
 - Eigenen geschützten Gateway-Zugang in beiden vorhandenen Vercel-Projekten eingerichtet. Amazon-Credentials bleiben ausschließlich im Gateway-Projekt.
 - Der Gateway wurde vom exakt bestehenden Production-Commit `5677ea2` neu bereitgestellt, um die neue Konfiguration zu laden. Kein Gateway-Quellcode und keine anderen Zugänge geändert.
-- Alle vier Matratzen und beide Zubehörprodukte über die Anbindung inklusive Titel, Bild, EUR-Preis und Abrufzeitpunkt verifiziert. Nicht erlaubte ASINs werden von der öffentlichen API ausgeschlossen.
+- Alle vier Matratzen und beide Zubehörprodukte über die Anbindung inklusive Titel, Bild, Verfügbarkeit und Abrufzeitpunkt verifiziert. Für fünf Produkte ist ein EUR-Preis vorhanden; beim derzeit nicht verfügbaren Emma-Modell bleibt der Preis bewusst leer. Nicht erlaubte ASINs werden von der öffentlichen API ausgeschlossen.
 - Öffentliche Basisadresse: `https://matratzen-finder.vercel.app`. Die Indexierung ist freigegeben; robots.txt nennt die Sitemap und sperrt den API-Pfad.
 - Vorschauen und generierte Deployment-Adressen sollen weiterhin Vercel-geschützt bleiben; die stabile Production-Adresse wird öffentlich freigegeben.
 - Der bestehende Inhalt der Betreiber- und Datenschutzhinweise bleibt erhalten. Eine technische Prüfung ersetzt keine gesonderte juristische Prüfung.

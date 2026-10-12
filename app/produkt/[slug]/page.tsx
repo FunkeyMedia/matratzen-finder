@@ -123,6 +123,11 @@ export default async function ProductPage({
               Prüfe die ausgewählte Größe, Härte und Modellversion erneut beim
               Händler, da Varianten wechseln können.
             </p>
+            {offer.availability && (
+              <p>
+                <strong>Amazon-Verfügbarkeit:</strong> {offer.availability}
+              </p>
+            )}
             <div className="detail-cta">
               <a
                 className="button button-primary"

@@ -53,6 +53,7 @@ export function ProductCard({
         <div className="card-spacer" />
         <div className="price-line">
           <strong>{money || "Preis bei Amazon prüfen"}</strong>
+          {offer?.availability && <small>{offer.availability}</small>}
           {offer?.checkedAt && (
             <small>
               Amazon-Abruf: {new Date(offer.checkedAt).toLocaleString("de-DE")}

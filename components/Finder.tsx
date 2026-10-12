@@ -235,6 +235,12 @@ export default function Finder() {
                       </small>
                     )}
                   </p>
+                  {offer?.availability && (
+                    <p>
+                      <strong>Amazon-Verfügbarkeit:</strong>{" "}
+                      {offer.availability}
+                    </p>
+                  )}
                   <p>
                     {r.reasons.join(" ") ||
                       (r.score === null
