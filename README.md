@@ -19,7 +19,7 @@ Jede Karte bezeichnet eine konkrete Ausführung, keine vollständige Liste aller
 
 ## Katalog und Finder
 
-Suche, Marke, Material, Größe, Härte und Produktart filtern den **gesamten** Bestand vor der Seiteneinteilung. Es werden höchstens 18 Karten pro Seite angezeigt. Für die sichtbaren ASINs werden Angebote geladen; beim Blättern und Filtern lädt die Oberfläche fehlende Angebote nach. Vergleichsauswahlen bleiben beim Blättern erhalten. Der direkte Vergleich verfügt über eine Modellsuche.
+Suche, Marke, Material, Größe, Härte und Produktart filtern den **gesamten** Bestand vor der Seiteneinteilung. Es werden höchstens 18 Karten pro Seite angezeigt. Für die sichtbaren ASINs werden nur die benötigten, stabilen Gruppen von höchstens zehn ASINs geladen; beim Blättern und Filtern lädt die Oberfläche fehlende Angebote nach. Vergleichsauswahlen bleiben beim Blättern erhalten. Der direkte Vergleich verfügt über eine Modellsuche.
 
 Der Finder berücksichtigt acht gängige Bettgrößen sowie die im Katalog belegten Größen in der Datenvalidierung, H2–H5 und mehrere Schaum-/Federkernmaterialien. Größe zählt 35, Härte 30, Material 25 und eine gewählte Zusatzpriorität 10 Punkte. Der Kriterienwert ist keine Qualitäts- oder Komfortnote. Unbekannte Felder erhalten keine Punkte; bekannte Abweichungen werden benannt.
 
@@ -27,7 +27,7 @@ Der Finder berücksichtigt acht gängige Bettgrößen sowie die im Katalog beleg
 
 `AMAZON_GATEWAY_SECRET` und `AMAZON_GATEWAY_URL` verbinden das Projekt mit dem vorhandenen Boxershorts-Finder-Gateway. Amazon-Credentials verbleiben im Gateway-Projekt. Alle Zugangsdaten sind serverseitig. Die öffentliche Angebots-API akzeptiert nur Katalog-ASINs und höchstens 20 Auswahlwerte.
 
-Live-Titel, Bilder, EUR-Preise und Verfügbarkeit stammen ausschließlich aus einem erfolgreichen Creators-Abruf. Angebotstimestamps werden server- und browserseitig in Europe/Berlin angezeigt. Daten werden 30 Minuten serverseitig zwischengespeichert. Bei fehlenden Angeboten bleibt der Preis leer und die Seite verweist auf die Händlerprüfung. Preise und Bild-URLs sind nicht im Quellkatalog gespeichert.
+Live-Titel, Bilder, EUR-Preise und Verfügbarkeit stammen ausschließlich aus einem erfolgreichen Creators-Abruf. Angebotstimestamps werden server- und browserseitig in Europe/Berlin angezeigt. Daten werden bis zu 30 Minuten im gemeinsamen Next.js-Datencache zwischengespeichert. Überlappende Seiten nutzen dieselben Gruppen; vorübergehende 429-/5xx-Antworten werden mit begrenztem Backoff erneut angefragt. Bei fehlenden Angeboten bleibt der Preis leer und die Seite verweist auf die Händlerprüfung. Preise und Bild-URLs sind nicht im Quellkatalog gespeichert.
 
 Der Recherchezugang war zeitlich begrenzt und authentifiziert; seine Route wird aus der Veröffentlichung entfernt und das separate Secret nach dem Import gelöscht.
 

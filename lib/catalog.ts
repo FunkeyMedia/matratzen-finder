@@ -52,3 +52,19 @@ export function catalogPage(
     ),
   };
 }
+
+/** Stable ten-ASIN groups make overlapping pages share persistent offer cache entries. */
+export function offerBatches(
+  items: Product[],
+  requested: string[],
+): string[][] {
+  const index = new Map(items.map((p, i) => [p.asin, i]));
+  const groups = new Set<number>();
+  for (const asin of requested) {
+    const i = index.get(asin);
+    if (i !== undefined) groups.add(Math.floor(i / 10));
+  }
+  return [...groups]
+    .sort((a, b) => a - b)
+    .map((n) => items.slice(n * 10, n * 10 + 10).map((p) => p.asin));
+}

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsc lib/ranking.ts lib/products.ts lib/catalog.ts lib/format.ts --module commonjs --target es2020 --skipLibCheck --outDir .test-build && node scripts/test-ranking.cjs && node scripts/test-catalog.cjs && node scripts/test-offer-date.cjs && node scripts/test-catalog-data.cjs",
+    "test": "tsc lib/ranking.ts lib/products.ts lib/catalog.ts lib/format.ts lib/retry.ts --module commonjs --target es2020 --skipLibCheck --outDir .test-build && node scripts/test-ranking.cjs && node scripts/test-catalog.cjs && node scripts/test-offer-date.cjs && node scripts/test-catalog-data.cjs && node scripts/test-offer-retry.cjs",
     "research": "node scripts/research.mjs"
   },
   "dependencies": {
