@@ -110,7 +110,7 @@ export const guides: Guide[] = [
       ],
       [
         "Wenn deine Größe noch fehlt",
-        "Der aktuelle Katalog enthält Matratzen in 90 × 200 und 140 × 200 cm. Daraus folgt keine Empfehlung für andere Bettgrößen. Wenn deine Größe nicht vertreten ist, wähle keinen unpassenden Ersatz. Unsere Auswahl ist begrenzt und wird nur mit belegten Varianten erweitert.",
+        "Im Katalog kannst du nach der konkret recherchierten Größe filtern. Eine andere Größe desselben Herstellers ist nicht automatisch für jede Matratze verfügbar. Wenn deine Maße nicht vertreten sind, wähle keinen unpassenden Ersatz. Prüfe die ausgewählte Größe im verlinkten Angebot erneut.",
       ],
     ],
     checklist: [

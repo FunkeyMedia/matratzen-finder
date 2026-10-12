@@ -1536,3 +1536,33 @@ button:disabled {
   color: #596b83;
   margin-bottom: 3px;
 }
+
+.catalog-pages button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+  background: white;
+  color: var(--ink);
+}
+.catalog-pages button.active {
+  background: var(--ink);
+  color: white;
+}
+.compare-search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.compare-search input {
+  padding: 13px;
+  border: 1px solid #b4bdca;
+  border-radius: 4px;
+  color: var(--ink);
+  background: white;
+  width: 100%;
+}

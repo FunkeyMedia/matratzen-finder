@@ -118,6 +118,17 @@ export default async function ProductPage({
                 Händlerquelle der recherchierten Variante ↗
               </a>
             </p>
+            {p.manufacturerSource && (
+              <p>
+                <a
+                  href={p.manufacturerSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ergänzende Herstellerquelle →
+                </a>
+              </p>
+            )}
             <p className="small-note">
               Die Angaben stammen aus der verlinkten Händlerseite zum
               angegebenen Recherchestand. Sie sind keine eigenen Testergebnisse.

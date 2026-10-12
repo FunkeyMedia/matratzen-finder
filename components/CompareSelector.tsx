@@ -10,15 +10,40 @@ export default function CompareSelector({
   initial?: string[];
 }) {
   const [selected, setSelected] = useState(initial);
+  const [query, setQuery] = useState("");
+  const matching = products.filter((p) =>
+    `${p.brand} ${p.name} ${p.kind} ${p.size}`
+      .toLocaleLowerCase("de-DE")
+      .includes(query.trim().toLocaleLowerCase("de-DE")),
+  );
+  const visible = [
+    ...products.filter((p) => selected.includes(p.asin)),
+    ...matching.filter((p) => !selected.includes(p.asin)).slice(0, 12),
+  ];
   return (
     <div className="compare-selector">
       <h2>Welche Modelle möchtest du vergleichen?</h2>
       <p>
-        Wähle zwei bis vier Produkte. Verglichen werden die konkreten Größen und
-        Varianten.
+        Wähle zwei bis vier Produkte. Verglichen werden die konkret
+        recherchierten Ausführungen.
+      </p>
+      <label className="compare-search">
+        Modell für Vergleich suchen
+        <input
+          type="search"
+          placeholder="Marke, Modell oder Größe"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </label>
+      <p className="small-note">
+        {matching.length} passende Modelle
+        {matching.length > 12
+          ? " · Die ersten zwölf Treffer werden angezeigt. Grenze deine Suche ein."
+          : ""}
       </p>
       <div className="compare-options">
-        {products.map((p) => (
+        {visible.map((p) => (
           <label key={p.asin}>
             <input
               type="checkbox"

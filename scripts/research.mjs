@@ -16,7 +16,7 @@ if(!gatewaySecret){
 const candidates=new Map();let last=0;let calls=0;
 for(const [category,queries] of Object.entries(groups))for(const keywords of queries)for(let itemPage=1;itemPage<=10;itemPage++){
  const delay=Math.max(0,1200-(Date.now()-last));if(delay)await new Promise(r=>setTimeout(r,delay));last=Date.now();
- const request={marketplace:'www.amazon.de',partnerTag:'onlinestarkei-21',keywords,itemCount:10,itemPage,resources:['itemInfo.title','ParentASIN']};
+ const request={marketplace:'www.amazon.de',partnerTag:'onlinestarkei-21',keywords,itemCount:10,itemPage,resources:['itemInfo.title','parentASIN']};
  const response=await fetch(gatewaySecret?gatewayUrl:'https://creatorsapi.amazon/catalog/v1/searchItems',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+(gatewaySecret||bearer),'x-marketplace':'www.amazon.de'},body:JSON.stringify(gatewaySecret?{operation:'searchItems',request}:request)});calls++;
  if(response.status===429){console.error('Rate limit reached; stop and rerun later');break}
  if(!response.ok){console.error('Search failed',keywords,itemPage,response.status);break}
