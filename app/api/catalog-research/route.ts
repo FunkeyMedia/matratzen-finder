@@ -9,7 +9,7 @@ export async function POST(req:NextRequest){
  let input;try{input=await req.json()}catch{return NextResponse.json({error:'invalid_request'},{status:400})}
  const operation=input.operation;
  if(!['searchItems','getItems','getVariations'].includes(operation))return NextResponse.json({error:'invalid_operation'},{status:400});
- const resources=['itemInfo.title','itemInfo.byLineInfo','itemInfo.features','itemInfo.productInfo'];
+ const resources=['itemInfo.title','itemInfo.byLineInfo','itemInfo.features','itemInfo.productInfo','parentASIN'];
  let request:Record<string,unknown>={resources};
  if(operation==='searchItems'){
   if(typeof input.keywords!=='string'||input.keywords.length<3||input.keywords.length>100||!Number.isInteger(input.page)||input.page<1||input.page>10)return NextResponse.json({error:'invalid_search'},{status:400});
