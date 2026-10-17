@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/Brand";
 import "./globals.css";
@@ -28,7 +29,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
-      </body>
+      <aside className="affiliate-tracking-note" style={{textAlign:"center",padding:12,fontSize:12}}><a href="/amazon-klickstatistik.html">Amazon-Klickstatistik / Click measurement</a></aside><Script id="affiliate-amazon-tracking" src="/affiliate-amazon-tracking.js" strategy="afterInteractive" /></body>
     </html>
   );
 }
