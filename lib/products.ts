@@ -5461,4 +5461,4 @@ export const mattresses = products.filter((p) => p.category === "matratze");
 export const accessories = products.filter((p) => p.category === "zubehoer");
 export const bySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const affiliateUrl = (asin: string) =>
-  `https://www.amazon.de/dp/${asin}?tag=onlinestarkei-21&th=1&psc=1`;
+  `https://www.amazon.de/dp/${asin}?tag=fkm-matratzenfinder-21&th=1&psc=1`;

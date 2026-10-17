@@ -68,7 +68,7 @@ assert.equal(new Set(products.map((p) => p.slug)).size, products.length);
 for (const p of products) {
   const u = new URL(affiliateUrl(p.asin));
   assert.equal(u.pathname, `/dp/${p.asin}`);
-  assert.equal(u.searchParams.get("tag"), "onlinestarkei-21");
+  assert.equal(u.searchParams.get("tag"), "fkm-matratzenfinder-21");
 }
 assert.ok(
   products.some((p) => p.asin === "B07KCF3LHR" && p.brand === "BLACKROLL"),

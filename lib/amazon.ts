@@ -119,7 +119,7 @@ const cachedBatch = unstable_cache(
     const response = await pacedFetch({
       itemIds: batch,
       marketplace: "www.amazon.de",
-      partnerTag: "onlinestarkei-21",
+      partnerTag: "fkm-matratzenfinder-21",
       resources: [
         "images.primary.large",
         "itemInfo.title",
